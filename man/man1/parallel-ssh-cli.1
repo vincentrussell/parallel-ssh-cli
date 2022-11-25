@@ -1,0 +1,53 @@
+.TH "parallel\-ssh\-cli" "1" "November 26, 2022" "parallel\-ssh\-cli 1.0.0" "User Manual"
+.SH NAME
+.PP
+parallel\-ssh\-cli \- A wrapper arround parallel\-ssh.
+See: https://parallel\-ssh.readthedocs.io/en/latest/
+.SH SYNOPSIS
+.PP
+\f[B]parallel\-ssh\-cli\f[] [\f[I]OPTIONS\f[]] [ COMMANDS...
+]
+.SH DESCRIPTION
+.PP
+\f[B]parallel\-ssh\-cli\f[] A wrapper arround parallel\-ssh written in
+python.
+.SH OPTIONS
+.PP
+\f[B]\-\-version\f[] : show program\[aq]s version number and exit
+.PP
+\f[B]\-\-help\f[] : show this help message and exit
+.PP
+\f[B]\-h, \-\-hosts\f[] : hosts file (each line
+"[user\@][proxyhost:]host[:port][:proxyport]")
+.PP
+\f[B]\-H, \-\-host\f[] : additional host entries
+("[user\@][proxyhost:]host[:port][:proxyport]")
+.PP
+\f[B]\-p, \-\-par\f[] : max number of parallel threads (OPTIONAL)
+.PP
+\f[B]\-P, \-\-password\f[] : Password to use for login.
+Defaults to no password (Optional)
+.PP
+\f[B]\-k, \-\-key\f[] : Private key file path or private key data to
+use.
+Paths must be str type and either absolute path or relative to user home
+directory like ~/.
+Bytes type input is used as private key data for authentication.
+(OPTIONAL)
+.PP
+\f[B]\-l, \-\-user\f[] : username (OPTIONAL)
+.PP
+\f[B]\-t, \-\-timeout\f[] : timeout (secs) (0 = no timeout) per host
+(OPTIONAL)
+.PP
+\f[B]\-g, \-\-host\-glob\f[] : Shell\-style glob to filter hosts
+(OPTIONAL)
+.PP
+\f[B]\-s, \-\-sourceFile\f[] : source file (or directory) to parallel
+scp to remote hosts (OPTIONAL)
+.PP
+\f[B]\-d, \-\-destinationFile\f[] : destination of file (or directory)
+that will be parallel scp\[aq]d to remote hosts (OPTIONAL)
+.PP
+\f[B]\-r, \-\-recursiveCopy\f[] : flag to indicate a recursive copy of
+the source diretory (like prsync) (OPTIONAL)

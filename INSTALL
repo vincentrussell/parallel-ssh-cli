@@ -1,0 +1,38 @@
+Installing prerequisites
+===============
+
+Please review the instructions below.  The follow instructions assume that you do not have python installed and that you are running centos 7.  I use a docker container for this.
+
+  # yum install -y https://repo.ius.io/ius-release-el7.rpm
+  # yum -y update
+  # yum install -y wget openssl-devel sudo vim python36u python36u-libs python36u-devel python36u-pip
+  # yum groupinstall -y "Development Tools"
+  # cd /bin
+  # cd $OLDPWD
+  # wget https://cmake.org/files/v3.6/cmake-3.6.2.tar.gz
+  # tar -zxvf cmake-3.6.2.tar.gz
+  # cd cmake-3.6.2
+  # ./bootstrap --prefix=/usr/local
+  # make
+  # make install
+  # pip3 install wheel
+  # pip3 install pyinstaller
+  # pip3 install termcolor
+  # CFLAGS="-fpermissive -std=c++11" pip3 install parallel-ssh
+
+
+Installing parallell-ssh-cli
+===============
+
+parallell-ssh-cli is supported on Python 3.1 and greater
+
+If you don't already have setuptools installed:
+
+  # wget 'http://peak.telecommunity.com/dist/ez_setup.py'
+  # sudo python ez_setup.py
+
+Then:
+
+  # sudo python setup.py install
+
+Share and enjoy!

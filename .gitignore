@@ -1,0 +1,4 @@
+dist/
+build/
+parallel_ssh_cli.egg-info/
+pssh_cli/__pycache__/
