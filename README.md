@@ -7,7 +7,7 @@ cli wrapper arround parallel-ssh.  See: https://parallel-ssh.readthedocs.io/en/l
 ```console
 yum install -y https://repo.ius.io/ius-release-el7.rpm
 yum -y update
-yum install -y wget openssl-devel sudo vim python36u python36u-libs python36u-devel python36u-pip
+yum install -y wget systemd openssl-devel sudo vim python36u python36u-libs python36u-devel python36u-pip
 yum groupinstall -y "Development Tools"
 cd /bin
 cd $OLDPWD
@@ -21,6 +21,7 @@ pip3 install wheel
 pip3 install pyinstaller
 pip3 install termcolor
 CFLAGS="-fpermissive -std=c++11" pip3 install parallel-ssh
+
 ```
 
 ## installing executable

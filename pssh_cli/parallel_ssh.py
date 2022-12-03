@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This file is part of parallel-ssh-cli.
 #
 # Copyright (C) 2022 Vincent Russell
@@ -167,6 +168,12 @@ def cli_parser():
 
     return parser
 
+def printAndHandleUnicodeError(outout):
+    try:
+        print(outout)
+    except UnicodeEncodeError:
+        print(outout.encode('utf-8'))
+
 def main():
     (options, args) = cli_parser().parse_args()
 
@@ -217,8 +224,9 @@ def main():
                  errorDetected = True
 
     else:
-        output = client.run_command(' '.join(args), stop_on_errors=False)
+        output = client.run_command(' '.join(args), encoding='utf-8', stop_on_errors=False)
         for host_out in output:
+            host_out.encoding = 'utf-8'
             try:
                 if host_out.stdout is None:
                     errorDetected = True
@@ -227,10 +235,10 @@ def main():
                     print(colored("[SUCCESS] ", "green") + host_out.host)
                 if host_out.stdout is not None:
                     for line in host_out.stdout:
-                        print(line)
+                        printAndHandleUnicodeError(line)
                 if host_out.stderr is not None:
                     for line in host_out.stderr:
-                        print(line)
+                        printAndHandleUnicodeError(line)
             except Timeout:
                 pass
 

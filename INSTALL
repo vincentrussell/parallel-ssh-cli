@@ -5,7 +5,7 @@ Please review the instructions below.  The follow instructions assume that you d
 
   # yum install -y https://repo.ius.io/ius-release-el7.rpm
   # yum -y update
-  # yum install -y wget openssl-devel sudo vim python36u python36u-libs python36u-devel python36u-pip
+  # yum install -y wget systemd openssl-devel sudo vim python36u python36u-libs python36u-devel python36u-pip
   # yum groupinstall -y "Development Tools"
   # cd /bin
   # cd $OLDPWD
@@ -29,10 +29,10 @@ parallell-ssh-cli is supported on Python 3.1 and greater
 If you don't already have setuptools installed:
 
   # wget 'http://peak.telecommunity.com/dist/ez_setup.py'
-  # sudo python ez_setup.py
+  # sudo python3 ez_setup.py
 
 Then:
 
-  # sudo python setup.py install
+  # sudo python3 setup.py install
 
 Share and enjoy!

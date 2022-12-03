@@ -1,0 +1,3 @@
+sudo docker build -t sshd_server .
+
+docker run --network=host -d -P --name test_sshd sshd_server
