@@ -174,6 +174,12 @@ def printAndHandleUnicodeError(outout):
     except UnicodeEncodeError:
         print(outout.encode('utf-8'))
 
+def getHostWithProxy(host_out):
+    if host_out.client._proxy_client is not None:
+        return host_out.client._proxy_client.host + ":" + host_out.host + ":" + str(host_out.client._proxy_client.port)
+    else:
+        return host_out.host + ":" + str(host_out.client.port)
+
 def main():
     (options, args) = cli_parser().parse_args()
 
@@ -230,9 +236,9 @@ def main():
             try:
                 if host_out.stdout is None:
                     errorDetected = True
-                    print(colored("[ERROR] ", "red") + host_out.host)
+                    print(colored("[ERROR] ", "red") + getHostWithProxy(host_out))
                 else:
-                    print(colored("[SUCCESS] ", "green") + host_out.host)
+                    print(colored("[SUCCESS] ", "green") + getHostWithProxy(host_out))
                 if host_out.stdout is not None:
                     for line in host_out.stdout:
                         printAndHandleUnicodeError(line)
